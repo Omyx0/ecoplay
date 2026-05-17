@@ -1,23 +1,3 @@
-﻿# EcoPlay - Architecture Overview
-
-A quick guide to help new contributors understand how EcoPlay's components fit together.
-
-## Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Framework | React 18 + TypeScript |
-| Build Tool | Vite 5+ |
-| Styling | Tailwind CSS 3+ |
-| Routing | React Router DOM v7 |
-| Animations | Framer Motion |
-| Backend / Database | Supabase (PostgreSQL) |
-| Icons | Lucide React |
-
-## System Diagram
-
-```mermaid
-Set-Content -Path docs\ARCHITECTURE.md -Encoding UTF8 -Value @'
 # EcoPlay - Architecture Overview
 
 A quick guide to help new contributors understand how EcoPlay's components fit together.
@@ -61,6 +41,27 @@ flowchart TD
 ```
 
 ## Project Structure
+
+```
+ecoplay/
+├── public/                  # Static assets
+├── docs/
+│   └── ARCHITECTURE.md      # This file
+├── src/
+│   ├── components/          # Reusable UI components
+│   ├── context/             # Global state via React Context
+│   ├── lib/                 # Supabase client setup
+│   ├── pages/               # One file per route
+│   ├── services/            # Utility services
+│   ├── App.tsx              # Root component and routes
+│   ├── ErrorBoundary.tsx    # Top-level error handling
+│   ├── main.tsx             # App entry point
+│   └── index.css            # Global styles
+├── .env.example
+├── vite.config.ts
+└── tailwind.config.js
+```
+
 ## src/components/
 
 | File | Purpose |
@@ -105,5 +106,11 @@ flowchart TD
 
 ## Environment Variables
 
-Copy .env.example to .env and fill in:
-For full setup instructions, see the README.
+Copy `.env.example` to `.env` and fill in:
+
+```
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+
+For full setup instructions, see the [README](../README.md).
